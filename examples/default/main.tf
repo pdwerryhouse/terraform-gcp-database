@@ -1,7 +1,7 @@
 module "db" {
   source = "../.."
 
-  name                = "blah1"
+  name                = random_string.database_name.result
   region              = "us-central1"
   database_version    = "MYSQL_8_0"
   tier                = "db-f1-micro"
@@ -24,4 +24,12 @@ module "db" {
       project = null
     }
   ]
+}
+
+resource "random_string" "database_name" {
+  length = 8
+  special = false
+  lower = true
+  upper = false
+  numeric = false
 }
