@@ -14,3 +14,4 @@
 ##    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 output "public_ip_address" { value = google_sql_database_instance.instance.public_ip_address }
+output "connection_name" { value = google_sql_database_instance.instance.connection_name }

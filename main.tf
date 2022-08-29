@@ -22,6 +22,8 @@ resource "google_sql_database_instance" "instance" {
   settings {
     tier = var.tier
     activation_policy = var.activation_policy
+    disk_autoresize_limit = var.disk_autoresize_limit
+    disk_type = var.disk_type
   }
 
   deletion_protection = var.deletion_protection

@@ -26,6 +26,20 @@ variable "database_version" {
   }
 }
 
+variable "disk_autoresize_limit" {
+  type = number
+  default = 0
+}
+
+variable "disk_type" {
+  type = string
+  default = "PD_SSD"
+  validation {
+    condition = contains(["PD_SSD", "PD_HDD"], var.disk_type)
+    error_message = "Variable disk_type must be either PD_SSD or PD_HDD."
+  }
+}
+
 variable "deletion_protection" {
   type    = bool
   default = false
